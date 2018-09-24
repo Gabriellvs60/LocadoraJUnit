@@ -21,7 +21,7 @@ public class FilmeTest {
          f.setNome("Z");
          Assert.fail("Cadastro com 1 caracteres");
     }catch(FilmeException ex){
-        Assert.assertThat(ex.getMessage(),is("Filme deve ter entre 2 e 99 caracteres"));
+        Assert.assertThat(ex.getMessage(),is("O nome do filme deve possuir entre 2 e 99 caracteres"));
     }
     
     }
