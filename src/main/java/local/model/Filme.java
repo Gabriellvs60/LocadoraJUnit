@@ -32,7 +32,9 @@ public class Filme {
     }
 
     public void setEstoque(Integer estoque) {
-        this.estoque = estoque;
+        if (estoque < 0 && estoque > 99) {
+            throw new FilmeException("Estoque não pode ser negativo, e o máximo é 99");
+        }
     }
 
     public Double getPrecoLocacao() {
