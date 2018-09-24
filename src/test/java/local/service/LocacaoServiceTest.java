@@ -52,8 +52,8 @@ public class LocacaoServiceTest {
             ls.alugarFilme(cliente, null);
             fail("Locação realizada com usuário null");
         }catch (LocadoraException | FilmeSemEstoqueException ex){
-            assertEquals("Impossível locar sem um usuário",ex.getMessage());
-            assertThat(ex.getMessage(),is(equalTo("Impossível locar sem um usuário")));
+            assertEquals("Impossivel locar sem um usuário",ex.getMessage());
+            assertThat(ex.getMessage(),is(equalTo("Impossivel locar sem um usuário")));
         }
     }
     @Test
