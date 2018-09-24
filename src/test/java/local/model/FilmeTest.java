@@ -4,6 +4,8 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import javax.validation.Valid;
+import local.exception.FilmeException;
+import static org.hamcrest.CoreMatchers.is;
 
 public class FilmeTest {
     //TODO: Nome deve possuir entre 2 e 99 caracteres (inclusive)
@@ -11,6 +13,16 @@ public class FilmeTest {
      @Test
     public void nomeIntervaloMinimoDeCaracteres() {
     //intervalo aceitável é de 2 a 99
+    //Cenário
+    Filme f = new Filme();
+    
+    //Validação
+    try{
+         f.setNome("Z");
+         Assert.fail("Cadastro com 1 caracteres");
+    }catch(FilmeException ex){
+        Assert.assertThat(ex.getMessage(),is("Filme deve ter entre 2 e 99 caracteres"));
+    }
     
     }
     
