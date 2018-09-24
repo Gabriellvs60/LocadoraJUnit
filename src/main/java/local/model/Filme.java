@@ -1,7 +1,8 @@
 package local.model;
 
-public class Filme {
+import local.exception.FilmeException;
 
+public class Filme {
 
     private String nome;
     private Integer estoque;
@@ -21,7 +22,9 @@ public class Filme {
     }
 
     public void setNome(String nome) {
-        this.nome = nome;
+        if (nome.length() < 2 && nome.length() >= 99) {
+            throw new FilmeException("O nome do filme deve possuir entre 2 e 99 caracteres");
+        }
     }
 
     public Integer getEstoque() {
