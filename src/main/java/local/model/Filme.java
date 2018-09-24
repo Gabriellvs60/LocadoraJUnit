@@ -22,7 +22,7 @@ public class Filme {
     }
 
     public void setNome(String nome) {
-        if (nome.length() < 2 && nome.length() >= 99) {
+        if (nome.length() < 2 && nome.length() > 99) {
             throw new FilmeException("O nome do filme deve possuir entre 2 e 99 caracteres");
         }
     }
@@ -40,6 +40,9 @@ public class Filme {
     }
 
     public void setPrecoLocacao(Double precoLocacao) {
-        this.precoLocacao = precoLocacao;
+        
+        if (precoLocacao < 1.00 && precoLocacao > 9.99) {
+            throw new FilmeException("O preço de locacao deverá ser um número positivo entre R$ 1,00 e R$ 9,99");
+        }
     }
 }
