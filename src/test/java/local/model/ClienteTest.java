@@ -15,9 +15,6 @@ public class ClienteTest {
 
     @Rule
     public ExpectedException exception = ExpectedException.none();
-
-
-
     //O nome não pode ser nulo. Lança ClienteException -  Nome é um campo obrigatório
     @Test
     public void naoDeveAceitarUsuarioNulo(){
