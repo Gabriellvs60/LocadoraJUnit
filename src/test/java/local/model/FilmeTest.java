@@ -1,27 +1,23 @@
 package local.model;
 
-import static antlr.Utils.error;
-import static antlr.Utils.error;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-import org.junit.Assert;
-import org.junit.Test;
-
-import javax.validation.Valid;
 import local.exception.FilmeException;
 import local.exception.FilmeSemEstoqueException;
 import local.exception.LocadoraException;
 import local.service.LocacaoService;
 import local.util.DataUtils;
+import static local.util.DataUtils.isMesmaData;
 import static local.util.DataUtils.obterDataComDiferencaDias;
-import static org.aspectj.bridge.MessageUtil.error;
 import org.assertj.core.internal.bytebuddy.utility.RandomString;
 import static org.hamcrest.CoreMatchers.is;
+import org.junit.Assert;
 import static org.junit.Assert.assertEquals;
 import org.junit.Assume;
+import org.junit.Test;
 
 public class FilmeTest {
 
@@ -198,13 +194,13 @@ public class FilmeTest {
         }
     }
 
-    /**
     @Test
     public void deveEntregarNaSegundaQuandoAlugarSabado()
             throws FilmeSemEstoqueException, LocadoraException {
         //Cenário
         Assume.assumeTrue(DataUtils.verificarDiaSemana(new Date(), Calendar.SATURDAY));
         Cliente cliente = new Cliente("Angelo");
+        LocacaoService locacaoService = new LocacaoService();
 
         //Ação
         Locacao locacao = locacaoService.alugarFilme(cliente, Arrays.asList(
@@ -232,5 +228,5 @@ public class FilmeTest {
         error.checkThat(isMesmaData(locacao.getDataRetorno(),
                 obterDataComDiferencaDias(1)), is(true));
     }
-**/
+
 }
